@@ -12,6 +12,7 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
+import java.awt.*;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
@@ -67,7 +68,8 @@ public class CourseServiceImpl implements CourseService {
 
             // Add title
             contentStream.beginText();
-            contentStream.setFont(PDType1Font.HELVETICA_BOLD, 20);
+            contentStream.setFont(PDType1Font.HELVETICA_BOLD, 28);
+            contentStream.setNonStrokingColor(Color.black);
             contentStream.newLineAtOffset(25, 700);
             contentStream.showText("Course Schedule :   "+courseName);
             contentStream.endText();
@@ -75,18 +77,20 @@ public class CourseServiceImpl implements CourseService {
             // Add header
             contentStream.beginText();
             contentStream.setFont(PDType1Font.HELVETICA, 18);
-            contentStream.newLineAtOffset(25, 670);
+            contentStream.newLineAtOffset(25, 665);
+            contentStream.setNonStrokingColor(Color.darkGray);
             contentStream.showText("Schedule Time                       Instructor");
-            contentStream.newLineAtOffset(25, 670);
+            contentStream.newLineAtOffset(25, 665);
             contentStream.endText();
 
-            float yPosition = 650;
+            float yPosition = 640;
 
             // Add schedule data
             for (CourseSchedule schedule : courseSchedules) {
                 contentStream.beginText();
                 contentStream.setFont(PDType1Font.HELVETICA, 16);
                 contentStream.newLineAtOffset(25, yPosition);
+                contentStream.setNonStrokingColor(Color.darkGray);
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM dd, yyyy HH:mm a");
                 String readableDate = schedule.getSchedule().format(formatter);// Adjust yPosition for each course entry
                 contentStream.showText(readableDate + "                 " + schedule.getInstructor());
