@@ -7,11 +7,14 @@ import com.demo.student.management.repository.StudentRepository;
 import com.demo.student.management.service.CourseService;
 import com.demo.student.management.util.JwtUtil;
 import lombok.AllArgsConstructor;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 @Service
 @AllArgsConstructor
@@ -34,4 +37,12 @@ public class CourseServiceImpl implements CourseService {
 
 
     }
+
+    @Cacheable(value = "courses", key = "'allCourses'")
+    @Override
+    public List<Course> findAll() {
+        return courseRepository.findAll();
+    }
+
+
 }
