@@ -8,4 +8,6 @@ public interface CourseService {
     void registerToCourse(Long courseId);
 
     List<Course> findAll();
+
+    byte[] getCourseScheduleAsPdf(Long courseId);
 }

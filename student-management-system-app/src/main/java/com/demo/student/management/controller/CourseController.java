@@ -47,8 +47,7 @@ public class CourseController {
 
     @GetMapping("/schedule/pdf")
     public ResponseEntity<byte[]> getCourseScheduleAsPdf(@RequestParam Long courseId) {
-        // Implement logic to generate PDF for the course schedule
-        byte[] pdfContent = {}; // Replace with actual PDF generation logic
+        byte[] pdfContent = courseService.getCourseScheduleAsPdf(courseId);
         return ResponseEntity.ok()
                 .header("Content-Disposition", "attachment; filename=course_schedule.pdf")
                 .body(pdfContent);
