@@ -9,8 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
 
-import static com.demo.student.management.constant.Constants.EXPIRATION_PERIOD;
-import static com.demo.student.management.constant.Constants.SECRET_KEY;
+import static com.demo.student.management.constant.Constants.*;
 
 @Component
 public class JwtUtil {
@@ -42,11 +41,12 @@ public class JwtUtil {
     }
 
     private String createToken(Map<String, Object> claims, String subject, boolean isRefreshToken) {
+        Integer expirationPeriod = (isRefreshToken)? REFRESH_EXPIRATION_PERIOD : TOKEN_EXPIRATION_PERIOD;
         return Jwts.builder()
                 .setClaims(claims)
                 .setSubject(subject)
                 .setIssuedAt(new Date(System.currentTimeMillis()))
-                .setExpiration(new Date(System.currentTimeMillis() + EXPIRATION_PERIOD))
+                .setExpiration(new Date(System.currentTimeMillis() + expirationPeriod))
                 .claim("isRefreshToken", isRefreshToken)
                 .signWith(SignatureAlgorithm.HS256, SECRET_KEY)
                 .compact();

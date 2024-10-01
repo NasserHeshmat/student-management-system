@@ -35,13 +35,13 @@ public class CourseController {
     }
 
     @PostMapping("/cancel")
-    public ResponseEntity<String> cancelCourseRegistration(@RequestParam Long userId, @RequestParam Long courseId) {
-        // Implement logic to cancel a user's registration for a course
-        return ResponseEntity.ok("Course registration canceled successfully");
+    public ResponseEntity<String> cancelCourseRegistration(@Valid @RequestParam @Min(value = 1) Long courseId) {
+    courseService.cancelCourseRegisteration(courseId);
+    return ResponseEntity.ok("Course registration canceled successfully");
     }
 
     @GetMapping("/schedule/pdf")
-    public ResponseEntity<byte[]> getCourseScheduleAsPdf(@RequestParam Long courseId) {
+    public ResponseEntity<byte[]> getCourseScheduleAsPdf(@Valid @RequestParam @Min(value = 1) Long courseId) {
         byte[] pdfContent = courseService.getCourseScheduleAsPdf(courseId);
         return ResponseEntity.ok()
                 .header("Content-Disposition", "attachment; filename=course_schedule.pdf")

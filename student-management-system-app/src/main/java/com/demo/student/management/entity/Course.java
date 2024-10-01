@@ -1,5 +1,6 @@
 package com.demo.student.management.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
@@ -21,7 +22,8 @@ public class Course {
     @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<CourseSchedule> schedule;
 
-    @JsonIgnore
-    @ManyToMany(mappedBy = "enrolledCourses",fetch = FetchType.LAZY)
-    private List<Student> students;
+//    @JsonIgnore
+//    @ManyToMany(mappedBy = "enrolledCourses",fetch = FetchType.LAZY)
+//    @JsonBackReference
+//    private List<Student> students;
 }
