@@ -33,9 +33,4 @@ public class StudentController {
         userRepository.save(student);
         return ResponseEntity.ok("User registered successfully");
     }
-
-    @PostMapping("/login")
-    public ResponseEntity<AuthenticationResponse> createAuthenticationToken(@RequestBody AuthenticationRequest authRequest) throws Exception {
-        return ResponseEntity.ok(authenticationService.createAuthenticationTokens(authRequest));
-    }
 }
