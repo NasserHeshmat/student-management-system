@@ -2,21 +2,16 @@ package com.demo.student.management.controller;
 
 
 import com.demo.student.management.entity.Student;
-import com.demo.student.management.model.AuthenticationRequest;
-import com.demo.student.management.model.AuthenticationResponse;
+import com.demo.student.management.model.ConfirmationResponse;
 import com.demo.student.management.repository.StudentRepository;
-import com.demo.student.management.service.AuthenticationService;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
-import com.demo.student.management.util.JwtUtil;
+
+import javax.validation.Valid;
+
+import static com.demo.student.management.constant.ErrorMessages.STUDENT_CREATED_SUCCESSFULLY;
 
 @RestController
 @AllArgsConstructor
@@ -25,12 +20,11 @@ public class StudentController {
 
     private final StudentRepository userRepository;
     private final PasswordEncoder passwordEncoder;
-    private final AuthenticationService authenticationService;
 
     @PostMapping("/register")
-    public ResponseEntity<String> registerUser(@RequestBody Student student) {
+    public ResponseEntity<ConfirmationResponse> registerUser(@Valid @RequestBody Student student) {
         student.setPassword(passwordEncoder.encode(student.getPassword()));
         userRepository.save(student);
-        return ResponseEntity.ok("User registered successfully");
+        return ResponseEntity.ok(new ConfirmationResponse(STUDENT_CREATED_SUCCESSFULLY));
     }
 }
