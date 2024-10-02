@@ -11,7 +11,7 @@ import static com.demo.student.management.constant.ErrorMessages.STUDENT_CREATED
 
 @RestController
 @AllArgsConstructor
-@RequestMapping("/api/users")
+@RequestMapping("/api/v1/users")
 public class StudentController {
 
     private final StudentService studentService;

@@ -13,6 +13,7 @@ import javax.validation.Valid;
 
 @RestController
 @AllArgsConstructor
+@RequestMapping("/api/v1")
 public class AuthenticationController {
 
     private final AuthenticationService authenticationService;

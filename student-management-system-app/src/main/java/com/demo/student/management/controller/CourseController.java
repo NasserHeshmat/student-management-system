@@ -12,7 +12,7 @@ import java.util.List;
 import static com.demo.student.management.constant.ErrorMessages.*;
 
 @RestController
-@RequestMapping("/api/courses")
+@RequestMapping("/api/v1/courses")
 @AllArgsConstructor
 public class CourseController {
 
