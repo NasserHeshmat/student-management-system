@@ -26,6 +26,7 @@ public class Student {
     private String lastName;
 
     @Email(message = INVALID_EMAIL)
+    @NotBlank(message = EMAIL_BLANK)
     @Column(unique = true)
     private String email;
 

@@ -22,8 +22,4 @@ public class Course {
     @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<CourseSchedule> schedule;
 
-//    @JsonIgnore
-//    @ManyToMany(mappedBy = "enrolledCourses",fetch = FetchType.LAZY)
-//    @JsonBackReference
-//    private List<Student> students;
 }

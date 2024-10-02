@@ -42,7 +42,7 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(ExpiredJwtException.class)
-    public ResponseEntity<ErrorResponse> handleGlobalException(ExpiredJwtException ex, WebRequest request) {
+    public ResponseEntity<ErrorResponse> handleExpiredJwtException(ExpiredJwtException ex, WebRequest request) {
         ErrorResponse errorResponse = ErrorResponse.builder()
                 .errorMsg(TOKEN_EXPIRED)
                 .status(HttpStatus.FORBIDDEN.value())
