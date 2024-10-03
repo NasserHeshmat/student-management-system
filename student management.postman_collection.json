@@ -44,12 +44,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8097/student-management/api/v1/login",
+							"raw": "http://localhost:{{port}}/student-management/api/v1/login",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8097",
+							"port": "{{port}}",
 							"path": [
 								"student-management",
 								"api",
@@ -94,12 +94,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8097/student-management/api/v1/refresh-token",
+							"raw": "http://localhost:{{port}}/student-management/api/v1/refresh-token",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8097",
+							"port": "{{port}}",
 							"path": [
 								"student-management",
 								"api",
@@ -146,12 +146,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8097/student-management/api/v1/login",
+							"raw": "http://localhost:{{port}}/student-management/api/v1/login",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8097",
+							"port": "{{port}}",
 							"path": [
 								"student-management",
 								"api",
@@ -197,12 +197,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8097/student-management/api/v1/login",
+							"raw": "http://localhost:{{port}}/student-management/api/v1/login",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8097",
+							"port": "{{port}}",
 							"path": [
 								"student-management",
 								"api",
@@ -252,12 +252,12 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:8097/student-management/api/v1/courses/register?courseId=1",
+							"raw": "http://localhost:{{port}}/student-management/api/v1/courses/register?courseId=1",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8097",
+							"port": "{{port}}",
 							"path": [
 								"student-management",
 								"api",
@@ -310,12 +310,12 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:8097/student-management/api/v1/courses/cancel?courseId=2",
+							"raw": "http://localhost:{{port}}/student-management/api/v1/courses/cancel?courseId=2",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8097",
+							"port": "{{port}}",
 							"path": [
 								"student-management",
 								"api",
@@ -373,12 +373,12 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:8097/student-management/api/v1/courses/schedule/pdf?courseId=1",
+							"raw": "http://localhost:{{port}}/student-management/api/v1/courses/schedule/pdf?courseId=1",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8097",
+							"port": "{{port}}",
 							"path": [
 								"student-management",
 								"api",
@@ -408,12 +408,12 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:8097/student-management/api/v1/courses",
+							"raw": "http://localhost:{{port}}/student-management/api/v1/courses",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8097",
+							"port": "{{port}}",
 							"path": [
 								"student-management",
 								"api",
@@ -447,12 +447,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8097/student-management/api/v1/users/register",
+					"raw": "http://localhost:{{port}}/student-management/api/v1/users/register",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8097",
+					"port": "{{port}}",
 					"path": [
 						"student-management",
 						"api",
@@ -497,6 +497,11 @@
 		{
 			"key": "refreshToken",
 			"value": ""
+		},
+		{
+			"key": "port",
+			"value": "8097",
+			"type": "string"
 		}
 	]
 }
